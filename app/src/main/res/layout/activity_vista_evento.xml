@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A24"
+    android:fillViewport="true"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- CABECERA -->
+        <Button
+            android:id="@+id/btnVolverDetalle"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3D2C45"
+            android:text="← Volver"
+            android:textColor="#E1B86A"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp" />
+
+        <!-- TARJETA DE INFORMACIÓN DEL EVENTO CON FOTO/BANNER -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#3D2C45"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Imagen / Banner del Evento -->
+                <ImageView
+                    android:id="@+id/ivBannerEvento"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/logo_carton_go"
+                    android:background="#151522" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tvNombreEventoDetalle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Torneo Local TCG - Formato Avanzado"
+                        android:textColor="#F2E6D8"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvRolUsuarioInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Rol actual: Jugador"
+                        android:textColor="#E1B86A"
+                        android:textSize="12sp" />
+
+                    <!-- Tarjeta interactiva de mesa que ahora lleva a vistaMesas -->
+                    <TextView
+                        android:id="@+id/tvMesaAsignadaInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:backgroundTint="#1A1A24"
+                        android:padding="12dp"
+                        android:text="🎴 Estás inscrito • Toca aquí para ver tus Mesas"
+                        android:textColor="#E1B86A"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- SECCIÓN 1: VISTA PARA JUGADOR INSCRITO -->
+        <LinearLayout
+            android:id="@+id/layoutSeccionJugador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnReportarResultado"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#B84A3A"
+                android:text="⚔️ Reportar Resultado de mi Mesa"
+                android:textColor="#F2E6D8"
+                android:textStyle="bold"
+                app:cornerRadius="16dp" />
+        </LinearLayout>
+
+        <!-- SECCIÓN 2: VISTA PARA JUECES -->
+        <LinearLayout
+            android:id="@+id/layoutSeccionJuez"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnGestionarRondas"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#E1B86A"
+                android:text="⚖️ Panel de Juez: Gestionar Rondas"
+                android:textColor="#1A1A24"
+                android:textStyle="bold"
+                app:cornerRadius="16dp" />
+        </LinearLayout>
+
+        <!-- SECCIÓN 3: VISTA PARA TIENDA / ORGANIZADOR -->
+        <LinearLayout
+            android:id="@+id/layoutSeccionTienda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnVerMesasGlobales"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#3D2C45"
+                android:text="🏢 Ver Distribución de Mesas (Tienda)"
+                android:textColor="#E1B86A"
+                android:textStyle="bold"
+                app:cornerRadius="16dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

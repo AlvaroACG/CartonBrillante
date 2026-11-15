@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A24"
+    tools:context=".MenuPrincipal">
+
+    <!-- 1. CABECERA FLOTANTE REDONDEADA CON EL LOGO PIXEL ART + BADGE + FILTRO -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/headerMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="#3D2C45"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="10dp">
+
+            <!-- Nuevo Logo en lugar del texto -->
+            <ImageView
+                android:id="@+id/ivMenuLogo"
+                android:layout_width="115dp"
+                android:layout_height="46dp"
+                android:contentDescription="Logo CartónGO!"
+                android:scaleType="fitStart"
+                android:src="@drawable/logo_carton_go" />
+
+            <!-- TextView original oculto por si tu código Java lo referencia por ID -->
+            <TextView
+                android:id="@+id/tvMenuTitulo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <!-- Badge de Regulación en contenedor tipo píldora redondeada -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:cardBackgroundColor="#B84A3A"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp">
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Spinner de Filtro dentro de cápsula oscura redondeada -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                app:cardBackgroundColor="#1A1A24"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp">
+
+                <Spinner
+                    android:id="@+id/spFiltro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#E1B86A"
+                    android:paddingHorizontal="6dp"
+                    android:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- 2. CONTENEDOR CENTRAL DE FRAGMENTOS -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardBottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerMenu" >
+
+        <TextView
+            android:id="@+id/tvBadgeRegulacionGlobal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:text="Chile • TCG"
+            android:textColor="#F2E6D8"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+    </FrameLayout>
+
+    <!-- 3. BARRA DE NAVEGACIÓN INFERIOR EN CÁPSULA REDONDEADA -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardBottomNav"
+        android:layout_width="0dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="#3D2C45"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            app:elevation="0dp"
+            app:itemIconTint="#E1B86A"
+            app:itemTextColor="#F2E6D8"
+            app:menu="@menu/bottom_nav_menu" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

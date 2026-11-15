@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A24"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <!-- 1. BARRA SUPERIOR FLOTANTE REDONDEADA: VOLVER + LOGO + MODALIDAD + MODO + REINICIAR -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:cardBackgroundColor="#3D2C45"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp">
+
+            <Button
+                android:id="@+id/btnVolverCalc"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:backgroundTint="#1A1A24"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingHorizontal="12dp"
+                android:text="← Volver"
+                android:textColor="#E1B86A"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp" />
+
+            <!-- Logo CartonGO! integrado en la cabecera -->
+            <ImageView
+                android:id="@+id/ivLogoCalc"
+                android:layout_width="76dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="Logo CartónGO!"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_carton_go" />
+
+            <!-- Cápsula Modalidad (Bo3 / Bo1) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginStart="8dp"
+                app:cardBackgroundColor="#1A1A24"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp">
+
+                <RadioGroup
+                    android:id="@+id/rgTipoEncuentro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="8dp">
+
+                    <RadioButton
+                        android:id="@+id/rbMatchBo3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:buttonTint="#B84A3A"
+                        android:checked="true"
+                        android:text="Match (Bo3)"
+                        android:textColor="#E1B86A"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/rbSingleBo1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="6dp"
+                        android:buttonTint="#B84A3A"
+                        android:text="1 Duelo (Bo1)"
+                        android:textColor="#F2E6D8"
+                        android:textSize="11sp" />
+                </RadioGroup>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Cápsula Modo (Local / Remota) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginStart="8dp"
+                app:cardBackgroundColor="#1A1A24"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp">
+
+                <RadioGroup
+                    android:id="@+id/rgModoCalculadora"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="8dp">
+
+                    <RadioButton
+                        android:id="@+id/rbModoLocal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:buttonTint="#E1B86A"
+                        android:checked="true"
+                        android:text="Local"
+                        android:textColor="#F2E6D8"
+                        android:textSize="11sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbModoRemoto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="6dp"
+                        android:buttonTint="#E1B86A"
+                        android:text="Remota"
+                        android:textColor="#F2E6D8"
+                        android:textSize="11sp" />
+                </RadioGroup>
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Badge de Firmas -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:cardBackgroundColor="#1A1A24"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/tvEstadoFirmas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="Firmas: 0/2"
+                    android:textColor="#E1B86A"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btnReiniciarMatch"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:backgroundTint="#B84A3A"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingHorizontal="12dp"
+                android:text="Reiniciar"
+                android:textColor="#F2E6D8"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- 2. CUERPO HORIZONTAL EN 3 TARJETAS REDONDEADAS: JUGADOR 1 | CENTRO | JUGADOR 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <!-- ==================== COLUMNA IZQUIERDA: JUGADOR 1 (Peso 3.5) ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            app:cardBackgroundColor="#3D2C45"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!-- Nombre Jugador 1 en Píldora -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    app:cardBackgroundColor="#1A1A24"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp">
+
+                    <EditText
+                        android:id="@+id/etNombreJ1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:hint="Jugador 1"
+                        android:singleLine="true"
+                        android:text="Jugador 1"
+                        android:textColor="#F2E6D8"
+                        android:textColorHint="#E1B86A"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tvVictoriasJ1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Juegos Ganados: 0"
+                    android:textColor="#E1B86A"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <!-- Pantalla de Puntos de Vida J1 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="6dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#1A1A24"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <TextView
+                        android:id="@+id/tvLpJ1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="8000"
+                        android:textColor="#E1B86A"
+                        android:textSize="38sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- Botones de cálculo J1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnRestarJ1"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#B84A3A"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="- LP"
+                        android:textColor="#F2E6D8"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="12dp" />
+
+                    <Button
+                        android:id="@+id/btnSumarJ1"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#E1B86A"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="+ LP"
+                        android:textColor="#1A1A24"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="12dp" />
+
+                    <Button
+                        android:id="@+id/btnMitadJ1"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="0.8"
+                        android:backgroundTint="#1A1A24"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="÷ 2"
+                        android:textColor="#E1B86A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="12dp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnGanaJuegoJ1"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="#1A1A24"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="Dar Victoria a J1"
+                    android:textColor="#F2E6D8"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="12dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ==================== COLUMNA CENTRAL: MONTO, DADO/MONEDA, FIRMA E HISTORIAL (Peso 3) ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="8dp"
+            android:layout_weight="3"
+            app:cardBackgroundColor="#3D2C45"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!-- Input de Monto LP en Píldora -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    app:cardBackgroundColor="#1A1A24"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp">
+
+                    <EditText
+                        android:id="@+id/etMontoLp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:hint="Monto LP (ej. 1000)"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:text="1000"
+                        android:textColor="#E1B86A"
+                        android:textColorHint="#F2E6D8"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- Botones rápidos de monto -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnRapido100"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#1A1A24"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        android:text="100"
+                        android:textColor="#E1B86A"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="10dp" />
+
+                    <Button
+                        android:id="@+id/btnRapido500"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_marginHorizontal="4dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#1A1A24"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        android:text="500"
+                        android:textColor="#E1B86A"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="10dp" />
+
+                    <Button
+                        android:id="@+id/btnRapido1000"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#1A1A24"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        android:text="1000"
+                        android:textColor="#E1B86A"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="10dp" />
+                </LinearLayout>
+
+                <!-- Dado y Moneda -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDado"
+                        android:layout_width="0dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="3dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#1A1A24"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        android:text="🎲 Dado"
+                        android:textColor="#F2E6D8"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="10dp" />
+
+                    <Button
+                        android:id="@+id/btnMoneda"
+                        android:layout_width="0dp"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="3dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#1A1A24"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        android:text="🪙 Moneda"
+                        android:textColor="#F2E6D8"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="10dp" />
+                </LinearLayout>
+
+                <!-- Historial / Log en contenedor redondeado -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#1A1A24"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp">
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/tvHistorialDuelo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="--- Duelo Iniciado (8000 LP) ---"
+                            android:textColor="#F2E6D8"
+                            android:textSize="11sp" />
+                    </ScrollView>
+                </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:id="@+id/btnFirmarResultado"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="#B84A3A"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="✍️ Firmar Acta"
+                    android:textColor="#F2E6D8"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="12dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ==================== COLUMNA DERECHA: JUGADOR 2 (Peso 3.5) ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            app:cardBackgroundColor="#3D2C45"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!-- Nombre Jugador 2 en Píldora -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    app:cardBackgroundColor="#1A1A24"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp">
+
+                    <EditText
+                        android:id="@+id/etNombreJ2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:hint="Jugador 2"
+                        android:singleLine="true"
+                        android:text="Jugador 2"
+                        android:textColor="#F2E6D8"
+                        android:textColorHint="#E1B86A"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tvVictoriasJ2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Juegos Ganados: 0"
+                    android:textColor="#E1B86A"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <!-- Pantalla de Puntos de Vida J2 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="6dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#1A1A24"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <TextView
+                        android:id="@+id/tvLpJ2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="8000"
+                        android:textColor="#E1B86A"
+                        android:textSize="38sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- Botones de cálculo J2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnRestarJ2"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#B84A3A"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="- LP"
+                        android:textColor="#F2E6D8"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="12dp" />
+
+                    <Button
+                        android:id="@+id/btnSumarJ2"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#E1B86A"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="+ LP"
+                        android:textColor="#1A1A24"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="12dp" />
+
+                    <Button
+                        android:id="@+id/btnMitadJ2"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="0.8"
+                        android:backgroundTint="#1A1A24"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="÷ 2"
+                        android:textColor="#E1B86A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="12dp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnGanaJuegoJ2"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="#1A1A24"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="Dar Victoria a J2"
+                    android:textColor="#F2E6D8"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="12dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</LinearLayout>

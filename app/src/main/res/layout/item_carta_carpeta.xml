@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardBackgroundColor="#3D2C45"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- Contenedor de imagen con badges redondeados -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp">
+
+            <!-- Marco interno para la imagen con esquinas curvas -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="#1A1A24"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp">
+
+                <ImageView
+                    android:id="@+id/ivImagenCarta"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@android:drawable/ic_menu_gallery" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Badge de Regulación (Terracota) -->
+            <TextView
+                android:id="@+id/tvRegulacionCartaBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_margin="8dp"
+                android:background="#B84A3A"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="3dp"
+                android:text="TCG"
+                android:textColor="#F2E6D8"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <!-- Badge de Cantidad (Oscuro con texto Dorado) -->
+            <TextView
+                android:id="@+id/tvCantidadBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:background="#1A1A24"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="3dp"
+                android:text="x1"
+                android:textColor="#E1B86A"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <!-- Nombre de la Carta -->
+        <TextView
+            android:id="@+id/tvNombreCarta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Nombre Carta"
+            android:textColor="#F2E6D8"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <!-- Set y Rareza (Acento Dorado) -->
+        <TextView
+            android:id="@+id/tvSetRareza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="ROTD-EN005 • Secret"
+            android:textColor="#E1B86A"
+            android:textSize="11sp" />
+
+        <!-- Precio y Condición -->
+        <TextView
+            android:id="@+id/tvPrecioCondicion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="$15.000 (NM)"
+            android:textColor="#F2E6D8"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

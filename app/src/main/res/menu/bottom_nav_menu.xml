@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_menu"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Inicio" />
+
+    <item
+        android:id="@+id/nav_scaner"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:title="Escáner" />
+
+    <!-- Este es el ítem que debes actualizar/agregar -->
+    <item
+        android:id="@+id/nav_carpeta_ventas"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Carpetas" />
+
+    <item
+        android:id="@+id/nav_decks"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="Decks" />
+
+</menu>

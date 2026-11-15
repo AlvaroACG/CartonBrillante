@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A24"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nueva Publicación"
+                    android:textColor="#F2E6D8"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Crea un post para la comunidad"
+                    android:textColor="#E1B86A"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="76dp"
+                android:layout_height="36dp"
+                android:contentDescription="Logo CartónGO!"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_carton_go" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            app:cardBackgroundColor="#3D2C45"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="¿Qué deseas hacer?"
+                    android:textColor="#E1B86A"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="#1A1A24"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp">
+
+                    <RadioGroup
+                        android:id="@+id/rg_tipo_publicacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <RadioButton
+                            android:id="@+id/rb_simple"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#B84A3A"
+                            android:checked="true"
+                            android:text="Discusión General (Simple)"
+                            android:textColor="#F2E6D8"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/rb_vender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#B84A3A"
+                            android:text="Vender Carta"
+                            android:textColor="#F2E6D8"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/rb_buscar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#B84A3A"
+                            android:text="Buscar Carta"
+                            android:textColor="#F2E6D8"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/rb_evento"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#B84A3A"
+                            android:text="Publicar Evento de Tienda"
+                            android:textColor="#F2E6D8"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/rb_carpeta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#B84A3A"
+                            android:text="Publicar desde Mi Carpeta"
+                            android:textColor="#F2E6D8"
+                            android:textSize="13sp" />
+                    </RadioGroup>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            app:cardBackgroundColor="#3D2C45"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Detalles de la Publicación"
+                    android:textColor="#E1B86A"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="#1A1A24"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp">
+
+                    <EditText
+                        android:id="@+id/et_titulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@android:color/transparent"
+                        android:hint="Título"
+                        android:paddingHorizontal="14dp"
+                        android:singleLine="true"
+                        android:textColor="#F2E6D8"
+                        android:textColorHint="#E1B86A"
+                        android:textSize="14sp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="#1A1A24"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp">
+
+                    <EditText
+                        android:id="@+id/et_cuerpo_texto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:gravity="top|start"
+                        android:hint="Escribe aquí tu publicación..."
+                        android:inputType="textMultiLine"
+                        android:maxLength="2000"
+                        android:minHeight="100dp"
+                        android:padding="14dp"
+                        android:textColor="#F2E6D8"
+                        android:textColorHint="#E1B86A"
+                        android:textSize="14sp" />
+                </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:id="@+id/btn_cargar_imagen"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="#1A1A24"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="📷 Cargar Imágenes (Máx. 10)"
+                    android:textColor="#F2E6D8"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="14dp" />
+
+                <TextView
+                    android:id="@+id/tv_contador_imagenes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="0 fotos seleccionadas"
+                    android:textAlignment="center"
+                    android:textColor="#E1B86A"
+                    android:textSize="11sp"
+                    android:visibility="gone" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="#1A1A24"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:id="@+id/iv_imagen_publicacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:scaleType="centerCrop"
+                        android:visibility="gone" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/ll_campos_extra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardBackgroundColor="#3D2C45"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Información Comercial / Evento"
+                        android:textColor="#E1B86A"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:cardBackgroundColor="#1A1A24"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp">
+
+                        <EditText
+                            android:id="@+id/et_precio"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@android:color/transparent"
+                            android:hint="Precio en CLP (Ej: 15000)"
+                            android:inputType="number"
+                            android:paddingHorizontal="14dp"
+                            android:singleLine="true"
+                            android:textColor="#F2E6D8"
+                            android:textColorHint="#E1B86A"
+                            android:textSize="14sp" />
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_ubicacion_seleccionada"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
+                            android:text="📍 Ubicación: No seleccionada"
+                            android:textColor="#F2E6D8"
+                            android:textSize="12sp" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/sw_mapa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🗺️ Mapa"
+                            android:textColor="#E1B86A"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="#1A1A24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="Condición de la Carta"
+                        android:textColor="#E1B86A"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <RatingBar
+                        android:id="@+id/rb_condicion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:numStars="5"
+                        android:progressTint="#B84A3A"
+                        android:stepSize="1.0" />
+
+                    <CheckBox
+                        android:id="@+id/cb_negociable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:buttonTint="#B84A3A"
+                        android:text="El precio es negociable"
+                        android:textColor="#F2E6D8"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Formato"
+                        android:textColor="#E1B86A"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#1A1A24"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp">
+
+                        <RadioGroup
+                            android:id="@+id/rg_formato"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp">
+
+                            <RadioButton
+                                android:id="@+id/rb_tcg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="32dp"
+                                android:buttonTint="#B84A3A"
+                                android:text="TCG"
+                                android:textColor="#F2E6D8" />
+
+                            <RadioButton
+                                android:id="@+id/rb_ocg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="#B84A3A"
+                                android:text="OCG"
+                                android:textColor="#F2E6D8" />
+                        </RadioGroup>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_guardar_publicacion"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#B84A3A"
+            android:text="Publicar"
+            android:textColor="#F2E6D8"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:cornerRadius="22dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

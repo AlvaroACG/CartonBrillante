@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A24">
+
+    <!-- CABECERA FLOTANTE REDONDEADA -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="#3D2C45"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/barra_superior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="10dp">
+
+            <!-- Botón Volver tipo Píldora -->
+            <Button
+                android:id="@+id/btnVolver"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:backgroundTint="#1A1A24"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingHorizontal="14dp"
+                android:text="← Volver"
+                android:textColor="#E1B86A"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:cornerRadius="14dp" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_carton_go" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- CONTENEDOR DE PUBLICACIONES (SCROLL) -->
+    <ScrollView
+        android:id="@+id/scrollViewPublicaciones"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        android:paddingBottom="88dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardHeader">
+
+        <!-- El LinearLayout que inflará las publicaciones dinámicamente -->
+        <LinearLayout
+            android:id="@+id/ll_publicaciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="16dp" />
+    </ScrollView>
+
+    <!-- BOTÓN FLOTANTE (FAB) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_nueva_publicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Nueva Publicación"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="#B84A3A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="#F2E6D8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Carton Brillante</string>
+    <string name="hint_full_name">Título de la publicación</string>
+    <string name="label_recommend">Precio Negociable</string>
+    <string name="label_gender">Formato</string>
+    <string name="gender_male">TCG</string>
+    <string name="gender_female">OCG</string>
+    <string name="label_experience">Urgencia o Estado</string>
+    <string name="btn_submit">Publicar</string>
+    <string name="title_history">Historial de Publicaciones</string>
+    <string name="hint_post_title">Título de la publicación</string>
+    <string name="label_post_type">Tipo de Publicación</string>
+    <string name="label_card_condition">Condición de la Carta</string>
+    <string name="label_negotiable">Precio Negociable</string>
+    <string name="label_format">Formato</string>
+    <string name="format_tcg">TCG</string>
+    <string name="format_ocg">OCG</string>
+    <string name="label_price_urgency">Urgencia o Estado</string>
+    <string name="btn_publish">Publicar</string>
+    <string name="title_my_posts">Mis Publicaciones</string>
+    <string name="default_web_client_id">1:887053434095:android:88b790545323c49768af1a</string>
+</resources>

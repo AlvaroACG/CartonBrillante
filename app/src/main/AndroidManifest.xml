@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Permisos requeridos para que el mapa se conecte a internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CartonBrillante">
+        <activity
+            android:name=".vistaCartonPass"
+            android:exported="false" />
+        <!-- Tu llave oficial de Google Maps (AHORA SÍ ADENTRO DE APPLICATION) -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="CONFIGURE_YOUR_GOOGLE_API_KEY" />
+
+        <activity
+            android:name=".vistaCartonPass"
+            android:exported="false" />
+        <activity
+            android:name=".RegistroUsuario"
+            android:exported="false" /> <!-- vistaCalculadora y vistaDecks fueron eliminadas de aquí porque ahora son Fragments -->
+        <activity
+            android:name=".vistaRegistro"
+            android:exported="false" />
+        <activity
+            android:name=".vistaInscripcionEvento"
+            android:exported="false" />
+        <activity
+            android:name=".vistaInscripcionEventoJuez"
+            android:exported="false" />
+        <activity
+            android:name=".vistaEvento"
+            android:exported="false" />
+        <activity
+            android:name=".vistaCamaraScaner"
+            android:exported="false" />
+        <activity
+            android:name=".vistaPublicacion"
+            android:exported="false" />
+        <activity
+            android:name=".vistaMapa"
+            android:exported="false" />
+        <activity
+            android:name=".vistaTablaGanadores"
+            android:exported="false" />
+        <activity
+            android:name=".vistaMesas"
+            android:exported="false" />
+        <activity
+            android:name=".perfilUsuario"
+            android:exported="false" /> <!-- Agrega esto para que los botones funcionen y no se caiga la app -->
+        <activity
+            android:name=".vistaListaEventos"
+            android:exported="false" />
+        <activity
+            android:name=".vistaPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".perfilJuez"
+            android:exported="false" />
+        <activity
+            android:name=".perfilTienda"
+            android:exported="false" />
+        <activity
+            android:name=".Foro"
+            android:exported="false" />
+        <activity
+            android:name=".MenuPrincipal"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
